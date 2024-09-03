@@ -7,15 +7,14 @@
     "headTest": "npx cypress run --headed",
     "chromeTest": "npx cypress run test ==browser chrome",
     "recordDashboardTest": "npx cypress run --record --key 44be8d45-c591-4936-ad9c-4819fe94ca34",
-    
     "frameworkTest": "npx cypress run --spec \"cypress/integration/framework/*\" "
-
   },
   "author": "Shivam",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "cypress": "^13.13.3",
+    "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-iframe": "^1.0.1",
     "cypress-mochawesome-reporter": "^3.8.2"
   }

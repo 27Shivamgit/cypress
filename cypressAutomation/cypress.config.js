@@ -1,8 +1,12 @@
 const { defineConfig } = require("cypress");
 
+
+
 module.exports = defineConfig({
   defaultCommandTimeout: 5000,
   reporter: 'cypress-mochawesome-reporter',
+  nonGlobalStepDefinitions: false,
+  step_definitions: './cypress/e2e/login/',
 
 
   env: {
@@ -16,10 +20,13 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      require('cypress-mochawesome-reporter/plugin')(on);
+      //require('cypress-mochawesome-reporter/plugin')(on);
+      return require('./cypress/plugins/index.js')(on, config);
+      
     },
     // User added
-    specPattern: 'cypress/integration/examples/*.js'
-    //  specPattern: 'cypress/integration/framework/*.js'
+    specPattern: 'cypress/integration/**/*.feature',
+    supportFile:false
   },
+  
 });
